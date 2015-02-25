@@ -2,13 +2,14 @@ package com.sqli.springboot.dao.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
 import com.sqli.springboot.dao.BookDao;
 import com.sqli.springboot.domain.Book;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class BookDaoImpl.
  */
@@ -16,7 +17,7 @@ import com.sqli.springboot.domain.Book;
 public class BookDaoImpl implements BookDao {
 
 	/** The library. */
-	private Collection<Book> library;
+	private List<Book> library;
 	
 	/**
 	 * Instantiates a new book dao impl.
@@ -96,5 +97,28 @@ public class BookDaoImpl implements BookDao {
 		
 		this.library.remove(bookToDelete);
 	}
+
+	/* (non-Javadoc)
+	 * @see com.sqli.springboot.dao.BookDao#updateBook(com.sqli.springboot.domain.Book)
+	 */
+	@Override
+	public Book updateBook(Long bookId, Book updatedBook) {
+		
+		for (Book book : this.library) {
+			
+			if (book.getId().equals(bookId)) {
+				
+				int bookIndex = this.library.indexOf(book);
+				
+				this.library.set(bookIndex, updatedBook);
+				
+				return updatedBook;
+			}
+		}
+		
+		return null;
+	}
+	
+	
 
 }

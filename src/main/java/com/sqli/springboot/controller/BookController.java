@@ -83,6 +83,12 @@ public class BookController {
 		
 	}
 	
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	public Book updateBook(@PathVariable("id") Long id, @RequestBody Book book) {
+		
+		return bookService.updateBook(id, book);
+	}
+	
 
 	/**
 	 * Gets the book service.

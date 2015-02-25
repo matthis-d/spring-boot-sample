@@ -46,5 +46,13 @@ public interface BookService {
 	 * @param bookId the book id
 	 */
 	public void deleteBook(Long bookId);
+	
+	/**
+	 * Update book.
+	 *
+	 * @param updatedBook the updated book
+	 * @return the book
+	 */
+	public Book updateBook(Long bookId, Book updatedBook);
 
 }

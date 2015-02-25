@@ -58,6 +58,14 @@ public class BookServiceImpl implements BookService {
 	public void deleteBook(Long bookId) {
 		bookDao.deleteBook(bookId);
 	}
+	
+	/* (non-Javadoc)
+	 * @see com.sqli.springboot.service.BookService#updateBook(com.sqli.springboot.domain.Book)
+	 */
+	@Override
+	public Book updateBook(Long bookId, Book updatedBook) {
+		return bookDao.updateBook(bookId, updatedBook);
+	}
 
 	/**
 	 * Gets the book dao.
