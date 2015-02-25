@@ -2,7 +2,6 @@ package com.sqli.springboot.dao.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
