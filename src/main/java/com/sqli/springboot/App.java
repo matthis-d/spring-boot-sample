@@ -4,7 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 
+// Do all the magic
 @EnableAutoConfiguration
+// Enable Component Scanning
 @ComponentScan
 public class App 
 {
@@ -15,6 +17,7 @@ public class App
 	 */
     public static void main(String[] args) throws Exception {
         
+    	// Simply starts my webapp
     	SpringApplication.run(App.class, args);
     	
     	System.out.println("Hello Spring Boot!");

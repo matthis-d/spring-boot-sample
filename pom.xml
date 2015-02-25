@@ -10,6 +10,7 @@
 	<name>springboot</name>
 	<url>http://maven.apache.org</url>
 
+    <!-- Set version(s) used for dependencies -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -21,6 +22,7 @@
 	</properties>
 
 	<dependencies>
+	   <!-- Use Spring Boot starter web to create a webapp -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -29,13 +31,12 @@
 
 	<build>
 		<plugins>
+			<!-- The Spring Boot plugin to quickly start project -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				
+			    <!-- Use Spring loaded to do hot-swaping -->
 				<dependencies>
 					<dependency>
 						<groupId>org.springframework</groupId>
@@ -44,6 +45,8 @@
 					</dependency>
 				</dependencies>
 			</plugin>
+			
+			<!-- Classical Maven Compiler, use Java 8 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>

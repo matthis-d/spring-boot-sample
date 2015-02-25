@@ -18,7 +18,7 @@ import com.sqli.springboot.service.BookService;
 /**
  * The Class BookController.
  */
-@RestController
+@RestController("bookController")
 @RequestMapping(value = "/books")
 public class BookController {
 
@@ -26,26 +26,55 @@ public class BookController {
 	@Autowired
 	private BookService bookService;
 	
+	/**
+	 * Gets the all books.
+	 *
+	 * @return the all books
+	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public Collection<Book> getAllBooks() {
 		return bookService.getAllBooks();
 	}
 	
+	/**
+	 * Gets the book by id.
+	 *
+	 * @param id the id
+	 * @return the book by id
+	 */
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public Book getBookById(@PathVariable("id") Long id) {
 		return bookService.getBookById(id);
 	}
 	
+	/**
+	 * Find books by author.
+	 *
+	 * @param authorName the author name
+	 * @return the collection
+	 */
 	@RequestMapping(value = "/author/{name}", method = RequestMethod.GET)
 	public Collection<Book> findBooksByAuthor(@PathVariable("name") String authorName) {
 		return bookService.findBooksByAuthor(authorName);
 	}
 	
+	/**
+	 * Adds the book.
+	 *
+	 * @param book the book
+	 * @return the book
+	 */
 	@RequestMapping(value = "/", method = RequestMethod.POST, consumes = "application/json")
 	public Book addBook(@RequestBody Book book) {
 		return bookService.addBook(book);
 	}
 
+	/**
+	 * Delete book.
+	 *
+	 * @param id the id
+	 * @return the response entity
+	 */
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<String> deleteBook(@PathVariable("id") Long id) {
 		
@@ -72,7 +101,5 @@ public class BookController {
 	public void setBookService(BookService bookService) {
 		this.bookService = bookService;
 	}
-	
-	
 	
 }
